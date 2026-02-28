@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16
+    container_name: architectai_db
+    environment:
+      POSTGRES_USER: architectai
+      POSTGRES_PASSWORD: architectai
+      POSTGRES_DB: architectai
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: architectai_redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:
